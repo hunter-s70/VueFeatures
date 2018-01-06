@@ -1,18 +1,33 @@
 <template>
-	<div>
-		<p>{{ quoteText }}</p>
-	</div>
+    <div class="quote-create">
+        <div class="form-group">
+          <label for="comment">Quote:</label>
+          <textarea class="form-control quote-create__enter-field"
+                    rows="5"
+                    id="comment"
+                    v-model="quoteText"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" @click="sendQuote">Send</button>
+    </div>
 </template>
 
 <script>
     export default {
         data() {
         	return {
-        		quoteText: 'text'
+        		quoteText: 'вава'
         	}
+        },
+        methods: {
+            sendQuote() {
+                alert(this.quoteText);
+            }
         }
     }
 </script>
 
-<style>
+<style scoped>
+.quote-create {
+    margin: 20px;
+}
 </style>
