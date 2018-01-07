@@ -15,12 +15,14 @@
     export default {
         data() {
         	return {
-        		quoteText: 'вава'
+        		quoteText: ''
         	}
         },
         methods: {
             sendQuote() {
-                alert(this.quoteText);
+                if (this.quoteText.trim()) {
+                    this.$emit('createQuote', this.quoteText);
+                }
             }
         }
     }

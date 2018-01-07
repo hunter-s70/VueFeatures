@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <quote-create></quote-create>
+        <quote-create @createQuote="create"></quote-create>
     	<quote-grid :quotes-list="quotes"></quote-grid>
     </div>
 </template>
@@ -12,8 +12,18 @@ import QuoteCreate from './components/QuoteCreate.vue'
     export default {
         data() {
         	return {
-        		quotes: ['first step', 'second-quo', 'вавава', 'вавава', 'вавава', 'вавава', 'вавава', 'вавава']
+        		quotes: [],
+                maxQuotes: 10
         	}
+        },
+        methods: {
+            create(value) {
+                if (this.quotes.length < this.maxQuotes) {
+                    this.quotes.push(value);
+                } else {
+                    alert('Max Quotes number is 10!')
+                }
+            }
         },
         components: {
         	'quote-grid': QuoteGrid,
