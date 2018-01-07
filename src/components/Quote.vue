@@ -8,22 +8,12 @@
     </div>
 </template>
 
-<script>
-    export default {
-        data() {
-            return {
-            }
-        }
-    }
-</script>
-
 <style scoped>
     .quote-wrapp {
         padding: 10px;
     }
     .quote {
         min-height: 100px;
-        margin: ;
         padding: 8px;
         background: #efefef;
         border: 1px solid #000;

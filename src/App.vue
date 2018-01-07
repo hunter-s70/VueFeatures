@@ -1,13 +1,20 @@
 <template>
     <div class="container">
+        <progres-bar :quotes-length="quotes.length" :max-quotes="maxQuotes"></progres-bar>
         <quote-create @createQuote="create"></quote-create>
-    	<quote-grid :quotes-list="quotes"></quote-grid>
+    	<quote-grid :quotes-list="quotes" @quoteDeleted="deleteQuote"></quote-grid>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="alert alert-info">Info: Click on a Quote to Delete it!</div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import QuoteGrid from './components/QuoteGrid.vue'
 import QuoteCreate from './components/QuoteCreate.vue'
+import ProgresBar from './components/ProgresBar.vue'
 
     export default {
         data() {
@@ -21,16 +28,17 @@ import QuoteCreate from './components/QuoteCreate.vue'
                 if (this.quotes.length < this.maxQuotes) {
                     this.quotes.push(value);
                 } else {
-                    alert('Max Quotes number is 10!')
+                    alert(`Max Quotes number is ${ this.maxQuotes }!`)
                 }
+            },
+            deleteQuote(quoteIndex) {
+                this.quotes.splice(quoteIndex, 1);
             }
         },
         components: {
         	'quote-grid': QuoteGrid,
-            'quote-create': QuoteCreate
+            'quote-create': QuoteCreate,
+            'progres-bar': ProgresBar
         }
     }
 </script>
-
-<style>
-</style>

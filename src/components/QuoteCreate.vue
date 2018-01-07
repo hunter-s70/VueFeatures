@@ -1,13 +1,15 @@
 <template>
     <div class="row quote-create">
-        <div class="form-group">
+        <div class="form-group col-sm-12">
           <label for="comment">Quote:</label>
           <textarea class="form-control quote-create__enter-field"
                     rows="5"
                     id="comment"
                     v-model="quoteText"></textarea>
         </div>
-        <button class="btn btn-primary btn-block" @click="sendQuote">Send</button>
+        <div class="col-sm-12">
+            <button class="btn btn-primary btn-block" @click="sendQuote">Send</button>
+        </div>
     </div>
 </template>
 
@@ -22,6 +24,7 @@
             sendQuote() {
                 if (this.quoteText.trim()) {
                     this.$emit('createQuote', this.quoteText);
+                    this.quoteText = '';
                 }
             }
         }
@@ -30,6 +33,6 @@
 
 <style scoped>
 .quote-create {
-    margin: 20px;
+    margin-bottom: 20px;
 }
 </style>
