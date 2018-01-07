@@ -1,5 +1,5 @@
 <template>
-    <div class="quote-create">
+    <div class="row quote-create">
         <div class="form-group">
           <label for="comment">Quote:</label>
           <textarea class="form-control quote-create__enter-field"
