@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div v-if="!showGame">
+        <template v-if="!showGame">
             <progres-bar :quotes-length="quotes.length" :max-quotes="maxQuotes"></progres-bar>
             <quote-create @createQuote="create"></quote-create>
             <quote-grid :quotes-list="quotes" @quoteDeleted="deleteQuote"></quote-grid>
@@ -9,7 +9,10 @@
                     <div class="alert alert-info">Info: Click on a Quote to Delete it!</div>
                 </div>
             </div>
-        </div>
+        </template>
+        <template v-if="showGame">
+            <monster-game></monster-game>
+        </template>
         <button class="btn btn-primary" @click="showGame = !showGame">Show Monster game</button>
     </div>
 </template>
@@ -18,6 +21,8 @@
 import QuoteGrid from './components/QuoteGrid.vue'
 import QuoteCreate from './components/QuoteCreate.vue'
 import ProgresBar from './components/ProgresBar.vue'
+import MonsterGame from './components/MonsterGame.vue'
+
 
     export default {
         data() {
@@ -42,7 +47,8 @@ import ProgresBar from './components/ProgresBar.vue'
         components: {
         	'quote-grid': QuoteGrid,
             'quote-create': QuoteCreate,
-            'progres-bar': ProgresBar
+            'progres-bar': ProgresBar,
+            'monster-game': MonsterGame
         }
     }
 </script>
