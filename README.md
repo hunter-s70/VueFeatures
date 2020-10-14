@@ -1,6 +1,8 @@
 # vue-cli
 
-> A Vue.js project
+Test Vue.js project
+- monster game
+- add quotes component
 
 ## Build Setup
 
